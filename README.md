@@ -1,4 +1,3 @@
-vagrant-scala-dev
-=================
+# vagrant-scala-dev
 
-A vagrant development box for Scala
+A vagrant development box for Scala. I haven't put it on vagrantcloud.com yet.
