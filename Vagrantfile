@@ -18,6 +18,13 @@ apt-get -y install sbt
 SCRIPT
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "hashicorp/precise64"
-  config.vm.provision "shell", inline: $script
+    config.vm.define "scala", primary: true do |scala|
+        scala.vm.box = "hashicorp/precise64"
+        scala.vm.provision "shell", inline: $script
+    end
+
+    config.vm.provider "virtualbox" do |vb|
+        vb.memory = 2048
+        vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+    end
 end
